@@ -5,11 +5,14 @@ function Loading() {
     <div
       style={{
         display: "flex",
+        flexDirection: "column",
+        height: "100vh",
         justifyContent: "center",
         alignItems: "center",
       }}
     >
-      <Loader type="Rings" color="black" height={70} width={70} />
+      <Loader type="Puff" color="black" height={70} width={70} />
+      <h1>Loading...</h1>
     </div>
   );
 }

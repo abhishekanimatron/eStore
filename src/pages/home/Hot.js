@@ -1,5 +1,6 @@
 import styled from "styled-components/macro";
 import Carousel from "nuka-carousel";
+import { whatsHot } from "../../constants/data";
 
 export default function Hot() {
   return (
@@ -10,79 +11,25 @@ export default function Hot() {
           <div className="simple-box">
             <p> Best of Store</p>
           </div>
-          <div className="product-card">
-            <div className="image-holder">
-              <img src="/images/hot/hot-box.webp" alt="hot-box" />
+          {whatsHot.map((item) => (
+            <div className="product-card" key={item.id}>
+              <div className="image-holder">
+                <img src={item.image} alt={item.title} />
+              </div>
+              <p className="product-name">{item.title} Lorem, ipsum dolor.</p>
+              <p className="product-model">{item.model}</p>
+              <p className="product-price">
+                MRP <span className="price-value">Rs. {item.price}</span>
+              </p>
+              <p className="taxes">(incl. of all taxes)</p>
             </div>
-            <p className="product-name">
-              Lorem ipsum dolor sit amet. Lorem, ipsum dolor.
-            </p>
-            <p className="product-model">Lo 117892</p>
-            <p className="product-price">
-              MRP <span className="price-value">Rs. 67,990</span>
-            </p>
-            <p className="taxes">(incl. of all taxes)</p>
-          </div>
-          <div className="product-card">
-            <div className="image-holder">
-              <img src="/images/hot/hot-speaker.webp" alt="hot-speaker" />
-            </div>
-            <p className="product-name">
-              Lorem ipsum dolor sit amet. Lorem, ipsum dolor.
-            </p>
-            <p className="product-model">Lo 117892</p>
-            <p className="product-price">
-              MRP <span className="price-value">Rs. 86,990</span>
-            </p>
-            <p className="taxes">(incl. of all taxes)</p>
-          </div>
-          <div className="product-card">
-            <div className="image-holder">
-              <img src="/images/hot/hot-cam.webp" alt="hot-camera" />
-            </div>
-            <p className="product-name">
-              Lorem ipsum dolor sit amet. Lorem, ipsum dolor.
-            </p>
-            <p className="product-model">Lo 117892</p>
-            <p className="product-price">
-              MRP <span className="price-value">Rs. 86,990</span>
-            </p>
-            <p className="taxes">(incl. of all taxes)</p>
-          </div>
-          <div className="product-card">
-            <div className="image-holder">
-              <img src="/images/hot/hot-ear.webp" alt="hot-earbud" />
-            </div>
-            <p className="product-name">
-              Lorem ipsum dolor sit amet. Lorem, ipsum dolor.
-            </p>
-            <p className="product-model">Lo 117892</p>
-            <p className="product-price">
-              MRP <span className="price-value">Rs. 86,990</span>
-            </p>
-            <p className="taxes">(incl. of all taxes)</p>
-          </div>
-          <div className="product-card ">
-            <div className="image-holder">
-              <img src="/images/hot/hot-blue.webp" alt="hot-tv" />
-            </div>
-            <p className="product-name">
-              Lorem ipsum dolor sit amet. Lorem, ipsum dolor.
-            </p>
-            <p className="product-model">Lo 117892</p>
-            <p className="product-price">
-              MRP <span className="price-value">Rs. 86,990</span>
-            </p>
-            <p className="taxes">(incl. of all taxes)</p>
-          </div>
+          ))}
         </div>
         <div className="carousel">
           <Carousel>
-            <img src="/images/hot/hot-box.webp" alt="hot-carousel" />
-            <img src="/images/hot/hot-cam.webp" alt="hot-carousel" />
-            <img src="/images/hot/hot-ear.webp" alt="hot-carousel" />
-            <img src="/images/hot/hot-speaker.webp" alt="hot-carousel" />
-            <img src="/images/hot/hot-blue.webp" alt="hot-carousel" />
+            {whatsHot.map((item) => (
+              <img src={item.image} alt={item.title} key={item.id} />
+            ))}
           </Carousel>
         </div>
       </Container>

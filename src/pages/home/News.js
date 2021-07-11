@@ -1,36 +1,22 @@
 import styled from "styled-components/macro";
+import { storeNews } from "../../constants/data";
 
 export default function News() {
   return (
     <Container>
       <h1>eStore News</h1>
-      <div class="cards-container">
-        <Card>
-          <img src="images/latest/latest-1.webp" alt="latest" />
-          <div>
-            <h2>covid-19 service support update</h2>
-            <Button size="small" color="primary">
-              Know More
-            </Button>
-          </div>
-        </Card>
-        <Card>
-          <img src="images/latest/latest-2.webp" alt="latest" />
-          <div>
-            <h2>register your product to avail 3 years warranty</h2>
-            <Button size="small" color="primary">
-              Know More
-            </Button>
-          </div>
-        </Card>
-        <Card>
-          <img src="images/latest/latest-3.webp" alt="latest" />
-
-          <div>
-            <h2>bravia oled a8h press release</h2>
-            <Button>Know More</Button>
-          </div>
-        </Card>
+      <div className="cards-container">
+        {storeNews.map((item) => (
+          <Card key={item.id}>
+            <img src={item.image} alt={item.title} />
+            <div>
+              <h2>{item.title}</h2>
+              <Button size="small" color="primary">
+                Know More
+              </Button>
+            </div>
+          </Card>
+        ))}
       </div>
     </Container>
   );
@@ -42,6 +28,9 @@ const Container = styled.div`
   }
   .cards-container {
     display: grid;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
     grid-template-columns: auto auto auto;
     @media (max-width: 768px) {
       grid-template-columns: auto auto;

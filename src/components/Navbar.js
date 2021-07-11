@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <Nav>
       <Link to={ROUTES.HOME} style={{ textDecoration: "none" }}>
-        <Logo href="">eStore</Logo>
+        <Logo>eStore</Logo>
       </Link>
       <Hamburger onClick={() => setIsOpen(!isOpen)}>
         <span />
@@ -48,7 +48,10 @@ const Navbar = () => {
 export default Navbar;
 
 const Nav = styled.div`
-  padding: 0 2rem;
+  padding: 0 7rem;
+  @media (max-width: 768px) {
+    padding: 1rem 2rem;
+  }
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -74,7 +77,7 @@ const PageLink = styled.div`
   }
 `;
 
-const Logo = styled.a`
+const Logo = styled.div`
   padding: 1rem 0;
   color: #ffffff;
   text-decoration: none;

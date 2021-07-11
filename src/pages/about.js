@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import { aboutText } from "../constants/data";
+import styled from "styled-components/macro";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
@@ -12,33 +13,9 @@ export default function about() {
           <h1>
             About <span>eStore</span>
           </h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus,
-            quisquam provident alias a quia quo quidem perferendis vitae
-            officiis sapiente, architecto quas maiores magni dolorem saepe
-            voluptates explicabo. Non corrupti ipsa natus quam. Veniam fugit
-            velit optio illo nulla. Molestiae saepe, eveniet quos tempora eos
-            maiores voluptatum velit magnam ad.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab
-            repellat, dolorem atque excepturi voluptatum, modi quam voluptatibus
-            earum sint dolorum rem illo ipsum perferendis laudantium accusantium
-            dolores? Molestias reprehenderit dolorum harum consequuntur minima
-            quibusdam temporibus in sunt necessitatibus exercitationem quas,
-            tempore sequi repellat odit incidunt? Ipsam laboriosam, deserunt qui
-            repellat eum assumenda. Explicabo impedit in excepturi id vel, sunt
-            rerum ut ullam similique quasi, repudiandae alias corrupti ab nam
-            voluptate? Cum, eligendi? Hic ab dignissimos atque. Quos ipsum fuga
-            debitis autem itaque quod. Officia, qui deleniti? Est quam dolores
-            optio officia, quia tempore iure, quis quos qui obcaecati aperiam
-            reprehenderit!
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque enim
-            exercitationem quas modi, voluptas cupiditate quam iusto recusandae
-            iste reiciendis!
-          </p>
+          {aboutText.map((item) => (
+            <p key={item.id}>{item.text}</p>
+          ))}
         </div>
       </div>
       <Footer />

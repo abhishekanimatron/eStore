@@ -1,7 +1,8 @@
 import styled from "styled-components/macro";
+import { Link } from "react-router-dom";
+import { socialLinks, footerLinks } from "../constants/data";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import InstagramIcon from "@material-ui/icons/Instagram";
-import { Link } from "react-router-dom";
 import TwitterIcon from "@material-ui/icons/Twitter";
 
 export default function Footer() {
@@ -11,30 +12,44 @@ export default function Footer() {
         <h4>@estore_online</h4>
         <h3>Find us here</h3>
         <div className="icons">
-          <Link to={{ pathname: "https://facebook.com" }} target="_blank">
-            <span id="facebook">
-              <FacebookIcon style={{ fontSize: "3rem" }} />
-            </span>
-          </Link>
-          <Link to={{ pathname: "https://instagram.com" }} target="_blank">
-            <span id="instagram">
-              <InstagramIcon style={{ fontSize: "3rem" }} />
-            </span>
-          </Link>
-          <Link to={{ pathname: "https://twitter.com" }} target="_blank">
-            <span id="twitter">
-              <TwitterIcon style={{ fontSize: "3rem" }} />
-            </span>
-          </Link>
+          {socialLinks.map((item) => (
+            <Link
+              to={{ pathname: `${item.link}` }}
+              target="_blank"
+              key={item.id}
+            >
+              <span id={item.site}>
+                {item.site === "facebook" && (
+                  <FacebookIcon style={{ fontSize: "3rem" }} />
+                )}
+                {item.site === "instagram" && (
+                  <InstagramIcon style={{ fontSize: "3rem" }} />
+                )}
+                {item.site === "twitter" && (
+                  <TwitterIcon style={{ fontSize: "3rem" }} />
+                )}
+              </span>
+            </Link>
+          ))}
         </div>
       </Social>
       <Container>
-        <p>© eStore 2021</p>
+        {footerLinks.map((item) => (
+          <Link
+            to={{ pathname: `${item.link}` }}
+            target="_blank"
+            key={item.id}
+            style={{ textDecoration: "none" }}
+          >
+            <p>{item.title}</p>
+          </Link>
+        ))}
+        {/* <p>© eStore 2021</p>
         <p>customer support</p>
         <p>about us</p>
         <p>contact us</p>
         <p>terms & conditions</p>
-        <p>privacy policy</p>
+        <p>privacy policy</p> */}
       </Container>
     </>
   );

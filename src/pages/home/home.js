@@ -106,24 +106,26 @@ const Banner = styled.div`
     }
     button {
       cursor: pointer;
-      background-color: #5865f5;
-      border: none;
+      background-color: transparent;
+      border: 1px solid #eeeeee;
       margin: 1rem 0;
       border-radius: 2px;
       padding: 0.7rem 0.8rem;
       width: 10rem;
-      font-weight: light;
+      font-weight: normal;
       transition: cubic-bezier(0.165, 0.84, 0.44, 1) background-color 0.3s;
-      color: #eeeeee;
+      color: #ffffff;
       @media (max-width: 768px) {
         margin: 0;
       }
       &:hover {
-        background-color: #0090de;
+        background-color: #ffffff;
+        color: #111111;
       }
       &:focus {
-        background-color: #0090de;
-        outline: 3px solid #0090de;
+        background-color: #ffffff;
+        color: #111111;
+        outline: 3px solid #ffffff;
         outline-offset: 2px;
       }
     }
